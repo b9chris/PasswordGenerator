@@ -1,0 +1,1 @@
+An open-source random password generator. Runs on .Net, if you inspect the source and trust it feel free to use it, if not, not. Really danged simple.
