@@ -67,28 +67,12 @@ TODO: Windows 2008 R2 Server does not like one of the following characters
 		private void button1_Click(object sender, EventArgs e)
 		{
 			int length = int.Parse(textBox1.Text);
-
-			List<char> chars = new List<char>();
-			char c;
-			for (c = 'a'; c <= 'z'; c++)
-				chars.Add(c);
-
-			for (c = 'A'; c <= 'Z'; c++)
-				chars.Add(c);
-
-			for (c = '0'; c <= '9'; c++)
-				chars.Add(c);
-
 			string specials = textBox2.Text;
-			for (int i = 0; i < specials.Length; i++)
-				chars.Add(specials[i]);
 
-			char[] password = new char[length];
-			Random random = new Random();
-			for (int i = 0; i < length; i++)
-				password[i] = chars[random.Next(chars.Count)];
+			var gen = new RandomPassword(specials);
+			string password = gen.Generate(length);
 
-			textBox3.Text = new string(password);
+			textBox3.Text = password;
 		}
 	}
 }
