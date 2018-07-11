@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -25,6 +26,8 @@ namespace PasswordGenerator
 			comboBox1.SelectedIndex = 2;
 			enterSpecialCharsForSelectedType();
 #endif
+
+			//genForFile();
 		}
 
 		protected string specialCharsForType(string type)
@@ -44,6 +47,9 @@ TODO: Windows 2008 R2 Server does not like one of the following characters
 
 				case "Web":
 					return "~$";
+
+				case "Numbers":
+					return "0-9";
 			}
 
 			return "";
@@ -73,6 +79,14 @@ TODO: Windows 2008 R2 Server does not like one of the following characters
 			string password = gen.Generate(length);
 
 			textBox3.Text = password;
+		}
+
+
+		protected void genForFile()
+		{
+			string appRoot = (new DirectoryInfo(Environment.CurrentDirectory)).Parent.Parent.FullName + @"\";
+			var gen = new GenerateForFile(appRoot + @"Data\Emails.txt");
+			gen.Generate();
 		}
 	}
 }

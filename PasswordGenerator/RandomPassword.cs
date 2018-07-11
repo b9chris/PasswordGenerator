@@ -19,8 +19,17 @@ namespace PasswordGenerator
 		public RandomPassword(string specials)
 		{
 			var list = new List<char>();
-			fillWithBasics(list);
-			fillWithArray(list, specials.ToCharArray());
+
+			if (specials == "0-9")
+			{
+				fillWithNumbers(list);
+			}
+			else
+			{
+				fillWithBasics(list);
+				fillWithArray(list, specials.ToCharArray());
+			}
+
 			chars = list.ToArray();
 		}
 
@@ -33,7 +42,12 @@ namespace PasswordGenerator
 			for (c = 'A'; c <= 'Z'; c++)
 				list.Add(c);
 
-			for (c = '0'; c <= '9'; c++)
+			fillWithNumbers(list);
+		}
+
+		protected void fillWithNumbers(List<char> list)
+		{
+			for (char c = '0'; c <= '9'; c++)
 				list.Add(c);
 		}
 
@@ -49,7 +63,7 @@ namespace PasswordGenerator
 		{
 			char[] password = new char[length];
 			int charsLength = chars.Length;
-			Random random = new Random();
+			Random random = RandomProvider.O.Random;
 			for (int i = 0; i < length; i++)
 				password[i] = chars[random.Next(charsLength)];
 

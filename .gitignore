@@ -1,3 +1,5 @@
 /*.suo
 /PasswordGenerator/bin
 /PasswordGenerator/obj
+/.vs
+/**/*.user

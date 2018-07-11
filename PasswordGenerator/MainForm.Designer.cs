@@ -34,7 +34,7 @@
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.button1 = new System.Windows.Forms.Button();
+			this.generateBtn = new System.Windows.Forms.Button();
 			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
@@ -86,22 +86,23 @@
 			this.comboBox1.Items.AddRange(new object[] {
             "Simple",
             "Windows",
-            "Web"});
+            "Web",
+            "Numbers"});
 			this.comboBox1.Location = new System.Drawing.Point(284, 28);
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(149, 21);
 			this.comboBox1.TabIndex = 5;
 			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 			// 
-			// button1
+			// generateBtn
 			// 
-			this.button1.Location = new System.Drawing.Point(16, 66);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 6;
-			this.button1.Text = "Generate";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.generateBtn.Location = new System.Drawing.Point(16, 66);
+			this.generateBtn.Name = "generateBtn";
+			this.generateBtn.Size = new System.Drawing.Size(75, 23);
+			this.generateBtn.TabIndex = 6;
+			this.generateBtn.Text = "Generate";
+			this.generateBtn.UseVisualStyleBackColor = true;
+			this.generateBtn.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// textBox3
 			// 
@@ -112,11 +113,12 @@
 			// 
 			// MainForm
 			// 
+			this.AcceptButton = this.generateBtn;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(447, 262);
 			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.generateBtn);
 			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.textBox2);
@@ -138,7 +140,7 @@
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.ComboBox comboBox1;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button generateBtn;
 		private System.Windows.Forms.TextBox textBox3;
 	}
 }
